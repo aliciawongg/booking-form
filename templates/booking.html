@@ -1,0 +1,5 @@
+<h1>booking form</h1>
+<form action = "/submitBooking/" method="post">{% csrf_token %}
+    Name: <input type="text" name="customer_name"><br/>
+    <input type="submit" value="Submit">
+</form>
