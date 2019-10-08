@@ -6,6 +6,6 @@ def displayForm(request):
     return render(request,'booking.html')    
 
 def submitBooking(request):
-    new_booking = customerBooking(content = request.POST['content'])
+    new_booking = customerBooking(content = request.POST['customer_name'])
     new_booking.save()
-    return render('submitted')
+    return render(request, 'notification.html')
