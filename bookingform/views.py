@@ -14,3 +14,8 @@ def submitBooking(request):
             form.save()
             return render(request, 'notification.html')
     return render(request,'booking.html', {'form': form})
+
+def showAllBookings(request):
+    all_bookings = customerBooking.objects.all()
+    return render(request, 'listbookings.html', 
+        {'all_bookings': all_bookings})
