@@ -2,4 +2,6 @@ from django.db import models
 
 # Create your models here.
 class customerBooking(models.Model):
-    content = models.TextField()
+    customer_name = models.TextField()
+    email = models.TextField()
+

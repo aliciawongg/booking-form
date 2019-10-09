@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import customerBooking
+from .forms import customerBookingForm
 # Create your views here.
-def displayForm(request):
-    return render(request,'booking.html')    
+# def displayForm(request):
+#     return render(request,'booking.html')    
 
 def submitBooking(request):
-    new_booking = customerBooking(content = request.POST['customer_name'])
-    new_booking.save()
-    return render(request, 'notification.html')
+    form = customerBookingForm()
+    if request.method == "POST":
+        form = customerBookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'notification.html')
+    return render(request,'booking.html', {'form': form})

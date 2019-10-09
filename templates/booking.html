@@ -1,5 +1,7 @@
 <h1>booking form</h1>
-<form action = "/submit/" method="post">{% csrf_token %}
-    Name: <input type="text" name="customer_name"><br/>
+{% block content %}
+<form method='POST'>{% csrf_token %}
+    {{ form.as_p }}
     <input type="submit" value="Submit">
 </form>
+{% endblock %}
