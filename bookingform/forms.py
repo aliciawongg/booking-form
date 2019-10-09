@@ -8,5 +8,6 @@ class customerBookingForm(forms.ModelForm):
             'customer_name',
             'email',
             'contact_num',
-            
+            'date_time',
+            'service'
         ]
